@@ -261,17 +261,17 @@
  * M355 Case Light on-off / brightness
  */
 //#define CASE_LIGHT_ENABLE
-// #if ENABLED(CASE_LIGHT_ENABLE)
-//   //#define CASE_LIGHT_PIN 4                  // Override the default pin if needed
-//   #define INVERT_CASE_LIGHT false             // Set true if Case Light is ON when pin is LOW
-//   #define CASE_LIGHT_DEFAULT_ON true          // Set default power-up state on
-//   #define CASE_LIGHT_DEFAULT_BRIGHTNESS 105   // Set default power-up brightness (0-255, requires PWM pin)
-//   //#define MENU_ITEM_CASE_LIGHT              // Add a Case Light option to the LCD main menu
-//   //#define CASE_LIGHT_USE_NEOPIXEL           // Use Neopixel LED as case light, requires NEOPIXEL_LED.
-//   #if ENABLED(CASE_LIGHT_USE_NEOPIXEL)
-//     #define CASE_LIGHT_NEOPIXEL_COLOR { 255, 255, 255, 255 } // { Red, Green, Blue, White }
-//   #endif
-// #endif
+#if ENABLED(CASE_LIGHT_ENABLE)
+  //#define CASE_LIGHT_PIN 4                  // Override the default pin if needed
+  #define INVERT_CASE_LIGHT false             // Set true if Case Light is ON when pin is LOW
+  #define CASE_LIGHT_DEFAULT_ON true          // Set default power-up state on
+  #define CASE_LIGHT_DEFAULT_BRIGHTNESS 105   // Set default power-up brightness (0-255, requires PWM pin)
+  //#define MENU_ITEM_CASE_LIGHT              // Add a Case Light option to the LCD main menu
+  //#define CASE_LIGHT_USE_NEOPIXEL           // Use Neopixel LED as case light, requires NEOPIXEL_LED.
+  #if ENABLED(CASE_LIGHT_USE_NEOPIXEL)
+    #define CASE_LIGHT_NEOPIXEL_COLOR { 255, 255, 255, 255 } // { Red, Green, Blue, White }
+  #endif
+#endif
 
 //===========================================================================
 //============================ Mechanical Settings ==========================
@@ -303,33 +303,33 @@
  */
 
 //#define X_DUAL_STEPPER_DRIVERS
-// #if ENABLED(X_DUAL_STEPPER_DRIVERS)
-//   #define INVERT_X2_VS_X_DIR true   // Set 'true' if X motors should rotate in opposite directions
-//   //#define X_DUAL_ENDSTOPS
-//   #if ENABLED(X_DUAL_ENDSTOPS)
-//     #define X2_USE_ENDSTOP _XMAX_
-//     #define X_DUAL_ENDSTOPS_ADJUSTMENT  0
-//   #endif
-// #endif
+#if ENABLED(X_DUAL_STEPPER_DRIVERS)
+  #define INVERT_X2_VS_X_DIR true   // Set 'true' if X motors should rotate in opposite directions
+  //#define X_DUAL_ENDSTOPS
+  #if ENABLED(X_DUAL_ENDSTOPS)
+    #define X2_USE_ENDSTOP _XMAX_
+    #define X_DUAL_ENDSTOPS_ADJUSTMENT  0
+  #endif
+#endif
 
 //#define Y_DUAL_STEPPER_DRIVERS
-// #if ENABLED(Y_DUAL_STEPPER_DRIVERS)
-//   #define INVERT_Y2_VS_Y_DIR true   // Set 'true' if Y motors should rotate in opposite directions
-//   //#define Y_DUAL_ENDSTOPS
-//   #if ENABLED(Y_DUAL_ENDSTOPS)
-//     #define Y2_USE_ENDSTOP _YMAX_
-//     #define Y_DUAL_ENDSTOPS_ADJUSTMENT  0
-//   #endif
-// #endif
+#if ENABLED(Y_DUAL_STEPPER_DRIVERS)
+  #define INVERT_Y2_VS_Y_DIR true   // Set 'true' if Y motors should rotate in opposite directions
+  //#define Y_DUAL_ENDSTOPS
+  #if ENABLED(Y_DUAL_ENDSTOPS)
+    #define Y2_USE_ENDSTOP _YMAX_
+    #define Y_DUAL_ENDSTOPS_ADJUSTMENT  0
+  #endif
+#endif
 
 //#define Z_DUAL_STEPPER_DRIVERS
-// #if ENABLED(Z_DUAL_STEPPER_DRIVERS)
-//   //#define Z_DUAL_ENDSTOPS
-//   #if ENABLED(Z_DUAL_ENDSTOPS)
-//     #define Z2_USE_ENDSTOP _XMAX_
-//     #define Z_DUAL_ENDSTOPS_ADJUSTMENT  0
-//   #endif
-// #endif
+#if ENABLED(Z_DUAL_STEPPER_DRIVERS)
+  //#define Z_DUAL_ENDSTOPS
+  #if ENABLED(Z_DUAL_ENDSTOPS)
+    #define Z2_USE_ENDSTOP _XMAX_
+    #define Z_DUAL_ENDSTOPS_ADJUSTMENT  0
+  #endif
+#endif
 
 /**
  * Dual X Carriage
@@ -342,13 +342,13 @@
  * By default the X2 stepper is assigned to the first unused E plug on the board.
  */
 //#define DUAL_X_CARRIAGE
-// #if ENABLED(DUAL_X_CARRIAGE)
-//   #define X1_MIN_POS X_MIN_POS  // set minimum to ensure first x-carriage doesn't hit the parked second X-carriage
-//   #define X1_MAX_POS X_BED_SIZE // set maximum to ensure first x-carriage doesn't hit the parked second X-carriage
-//   #define X2_MIN_POS 80     // set minimum to ensure second x-carriage doesn't hit the parked first X-carriage
-//   #define X2_MAX_POS 353    // set maximum to the distance between toolheads when both heads are homed
-//   #define X2_HOME_DIR 1     // the second X-carriage always homes to the maximum endstop position
-//   #define X2_HOME_POS X2_MAX_POS // default home position is the maximum carriage position
+#if ENABLED(DUAL_X_CARRIAGE)
+  #define X1_MIN_POS X_MIN_POS  // set minimum to ensure first x-carriage doesn't hit the parked second X-carriage
+  #define X1_MAX_POS X_BED_SIZE // set maximum to ensure first x-carriage doesn't hit the parked second X-carriage
+  #define X2_MIN_POS 80     // set minimum to ensure second x-carriage doesn't hit the parked first X-carriage
+  #define X2_MAX_POS 353    // set maximum to the distance between toolheads when both heads are homed
+  #define X2_HOME_DIR 1     // the second X-carriage always homes to the maximum endstop position
+  #define X2_HOME_POS X2_MAX_POS // default home position is the maximum carriage position
       // However: In this mode the HOTEND_OFFSET_X value for the second extruder provides a software
       // override for X2_HOME_POS. This also allow recalibration of the distance between the two endstops
       // without modifying the firmware (through the "M218 T1 X???" command).
@@ -364,16 +364,16 @@
   //                                    once. (2nd extruder x offset and temp offset are set using: M605 S2 [Xnnn] [Rmmm])
 
   // This is the default power-up mode which can be later using M605.
-//   #define DEFAULT_DUAL_X_CARRIAGE_MODE DXC_FULL_CONTROL_MODE
-//
-//   // Default settings in "Auto-park Mode"
-//   #define TOOLCHANGE_PARK_ZLIFT   0.2      // the distance to raise Z axis when parking an extruder
-//   #define TOOLCHANGE_UNPARK_ZLIFT 1        // the distance to raise Z axis when unparking an extruder
-//
-//   // Default x offset in duplication mode (typically set to half print bed width)
-//   #define DEFAULT_DUPLICATION_X_OFFSET 100
-//
-// #endif // DUAL_X_CARRIAGE
+  #define DEFAULT_DUAL_X_CARRIAGE_MODE DXC_FULL_CONTROL_MODE
+
+  // Default settings in "Auto-park Mode"
+  #define TOOLCHANGE_PARK_ZLIFT   0.2      // the distance to raise Z axis when parking an extruder
+  #define TOOLCHANGE_UNPARK_ZLIFT 1        // the distance to raise Z axis when unparking an extruder
+
+  // Default x offset in duplication mode (typically set to half print bed width)
+  #define DEFAULT_DUPLICATION_X_OFFSET 100
+
+#endif // DUAL_X_CARRIAGE
 
 // Activate a solenoid on the active extruder with M380. Disable all with M381.
 // Define SOL0_PIN, SOL1_PIN, etc., for each extruder that has a solenoid.
@@ -384,9 +384,9 @@
 // Homing hits each endstop, retracts by these distances, then does a slower bump.
 #define X_HOME_BUMP_MM 5
 #define Y_HOME_BUMP_MM 5
-#define Z_HOME_BUMP_MM 3
-#define HOMING_BUMP_DIVISOR { 5, 5, 4 }  // Re-Bump Speed Divisor (Divides the Homing Feedrate)
-#define QUICK_HOME                       // If homing includes X and Y, do a diagonal move initially
+#define Z_HOME_BUMP_MM 2
+#define HOMING_BUMP_DIVISOR { 2, 2, 4 }  // Re-Bump Speed Divisor (Divides the Homing Feedrate)
+//#define QUICK_HOME                     // If homing includes X and Y, do a diagonal move initially
 
 // When G28 is called, this option will make Y home before X
 //#define HOME_Y_BEFORE_X
@@ -412,7 +412,7 @@
 
   // Safety: The probe needs time to recognize the command.
   //         Minimum command delay (ms). Enable and increase if needed.
-  #define BLTOUCH_DELAY 100
+  //#define BLTOUCH_DELAY 500
 
   /**
    * Settings for BLTOUCH Classic 1.2, 1.3 or BLTouch Smart 1.0, 2.0, 2.2, 3.0, 3.1, and most clones:
@@ -478,12 +478,12 @@
 #define DEFAULT_MINIMUMFEEDRATE       0.0     // minimum feedrate
 #define DEFAULT_MINTRAVELFEEDRATE     0.0
 
-#define HOME_AFTER_DEACTIVATE  // Require rehoming after steppers are deactivated
+//#define HOME_AFTER_DEACTIVATE  // Require rehoming after steppers are deactivated
 
 // @section lcd
 
 #if ENABLED(ULTIPANEL)
-  #define MANUAL_FEEDRATE {50*60, 50*60, 15*60, 0} // Feedrates for manual moves along X, Y, Z, E from panel
+  #define MANUAL_FEEDRATE {50*60, 50*60, 4*60, 60} // Feedrates for manual moves along X, Y, Z, E from panel
   #define ULTIPANEL_FEEDMULTIPLY  // Comment to disable setting feedrate multiplier via encoder
 #endif
 
@@ -508,7 +508,7 @@
 //
 // Use Junction Deviation instead of traditional Jerk Limiting
 //
-#define JUNCTION_DEVIATION
+//#define JUNCTION_DEVIATION
 #if ENABLED(JUNCTION_DEVIATION)
   #define JUNCTION_DEVIATION_MM 0.02  // (mm) Distance from real junction edge
 #endif
@@ -613,17 +613,17 @@
  * Enable this feature to add LED Control to the LCD menu
  */
 //#define LED_CONTROL_MENU
-// #if ENABLED(LED_CONTROL_MENU)
-//   #define LED_COLOR_PRESETS                 // Enable the Preset Color menu option
-//   #if ENABLED(LED_COLOR_PRESETS)
-//     #define LED_USER_PRESET_RED        255  // User defined RED value
-//     #define LED_USER_PRESET_GREEN      128  // User defined GREEN value
-//     #define LED_USER_PRESET_BLUE         0  // User defined BLUE value
-//     #define LED_USER_PRESET_WHITE      255  // User defined WHITE value
-//     #define LED_USER_PRESET_BRIGHTNESS 255  // User defined intensity
-//     //#define LED_USER_PRESET_STARTUP       // Have the printer display the user preset color on startup
-//   #endif
-// #endif // LED_CONTROL_MENU
+#if ENABLED(LED_CONTROL_MENU)
+  #define LED_COLOR_PRESETS                 // Enable the Preset Color menu option
+  #if ENABLED(LED_COLOR_PRESETS)
+    #define LED_USER_PRESET_RED        255  // User defined RED value
+    #define LED_USER_PRESET_GREEN      128  // User defined GREEN value
+    #define LED_USER_PRESET_BLUE         0  // User defined BLUE value
+    #define LED_USER_PRESET_WHITE      255  // User defined WHITE value
+    #define LED_USER_PRESET_BRIGHTNESS 255  // User defined intensity
+    //#define LED_USER_PRESET_STARTUP       // Have the printer display the user preset color on startup
+  #endif
+#endif // LED_CONTROL_MENU
 
 #if ENABLED(SDSUPPORT)
 
@@ -653,7 +653,6 @@
    * point in the file.
    */
   //#define POWER_LOSS_RECOVERY
-  #define POWEROFF_SAVE_SD_FILE
   #if ENABLED(POWER_LOSS_RECOVERY)
     //#define POWER_LOSS_PIN   44     // Pin to detect power loss
     //#define POWER_LOSS_STATE HIGH   // State of pin indicating power loss
@@ -804,16 +803,16 @@
  *
  * Warning: Does not respect endstops!
  */
-#define BABYSTEPPING
+//#define BABYSTEPPING
 #if ENABLED(BABYSTEPPING)
   //#define BABYSTEP_XY              // Also enable X/Y Babystepping. Not supported on DELTA!
   #define BABYSTEP_INVERT_Z false    // Change if Z babysteps should go the other way
-  #define BABYSTEP_MULTIPLICATOR 25   // Babysteps are very small. Increase for faster motion.
-  #define BABYSTEP_ZPROBE_OFFSET   // Enable to combine M851 and Babystepping
-  #define DOUBLECLICK_FOR_Z_BABYSTEPPING // Double-click on the Status Screen for Z Babystepping.
+  #define BABYSTEP_MULTIPLICATOR 1   // Babysteps are very small. Increase for faster motion.
+  //#define BABYSTEP_ZPROBE_OFFSET   // Enable to combine M851 and Babystepping
+  //#define DOUBLECLICK_FOR_Z_BABYSTEPPING // Double-click on the Status Screen for Z Babystepping.
   #define DOUBLECLICK_MAX_INTERVAL 1250 // Maximum interval between clicks, in milliseconds.
                                         // Note: Extra time may be added to mitigate controller latency.
-  #define BABYSTEP_ZPROBE_GFX_OVERLAY // Enable graphical overlay on Z-offset editor
+  //#define BABYSTEP_ZPROBE_GFX_OVERLAY // Enable graphical overlay on Z-offset editor
 #endif
 
 // @section extruder
@@ -835,33 +834,33 @@
  * Mention @Sebastianv650 on GitHub to alert the author of any issues.
  */
 //#define LIN_ADVANCE
-// #if ENABLED(LIN_ADVANCE)
-//   #define LIN_ADVANCE_K 0.22  // Unit: mm compression per 1mm/s extruder speed
-//   //#define LA_DEBUG          // If enabled, this will generate debug information output over USB.
-// #endif
+#if ENABLED(LIN_ADVANCE)
+  #define LIN_ADVANCE_K 0.22  // Unit: mm compression per 1mm/s extruder speed
+  //#define LA_DEBUG          // If enabled, this will generate debug information output over USB.
+#endif
 
 // @section leveling
 
-// #if ENABLED(MESH_BED_LEVELING) || ENABLED(AUTO_BED_LEVELING_UBL)
-//   // Override the mesh area if the automatic (max) area is too large
-//   //#define MESH_MIN_X MESH_INSET
-//   //#define MESH_MIN_Y MESH_INSET
-//   //#define MESH_MAX_X X_BED_SIZE - (MESH_INSET)
-//   //#define MESH_MAX_Y Y_BED_SIZE - (MESH_INSET)
-// #endif
+#if ENABLED(MESH_BED_LEVELING) || ENABLED(AUTO_BED_LEVELING_UBL)
+  // Override the mesh area if the automatic (max) area is too large
+  //#define MESH_MIN_X MESH_INSET
+  //#define MESH_MIN_Y MESH_INSET
+  //#define MESH_MAX_X X_BED_SIZE - (MESH_INSET)
+  //#define MESH_MAX_Y Y_BED_SIZE - (MESH_INSET)
+#endif
 
 // @section extras
 
 //
 // G2/G3 Arc Support
 //
-//#define ARC_SUPPORT               // Disable this feature to save ~3226 bytes
-// #if ENABLED(ARC_SUPPORT)
-//   #define MM_PER_ARC_SEGMENT  1   // Length of each arc segment
-//   #define N_ARC_CORRECTION   25   // Number of intertpolated segments between corrections
-//   //#define ARC_P_CIRCLES         // Enable the 'P' parameter to specify complete circles
-//   //#define CNC_WORKSPACE_PLANES  // Allow G2/G3 to operate in XY, ZX, or YZ planes
-// #endif
+#define ARC_SUPPORT               // Disable this feature to save ~3226 bytes
+#if ENABLED(ARC_SUPPORT)
+  #define MM_PER_ARC_SEGMENT  1   // Length of each arc segment
+  #define N_ARC_CORRECTION   25   // Number of intertpolated segments between corrections
+  //#define ARC_P_CIRCLES         // Enable the 'P' parameter to specify complete circles
+  //#define CNC_WORKSPACE_PLANES  // Allow G2/G3 to operate in XY, ZX, or YZ planes
+#endif
 
 // Support for G5 with XYZE destination and IJPQ offsets. Requires ~2666 bytes.
 //#define BEZIER_CURVE_SUPPORT
@@ -869,9 +868,9 @@
 // G38.2 and G38.3 Probe Target
 // Set MULTIPLE_PROBING if you want G38 to double touch
 //#define G38_PROBE_TARGET
-// #if ENABLED(G38_PROBE_TARGET)
-//   #define G38_MINIMUM_MOVE 0.0275 // minimum distance in mm that will produce a move (determined using the print statement in check_move)
-// #endif
+#if ENABLED(G38_PROBE_TARGET)
+  #define G38_MINIMUM_MOVE 0.0275 // minimum distance in mm that will produce a move (determined using the print statement in check_move)
+#endif
 
 // Moves (or segments) with fewer steps than this will be joined with the next move
 #define MIN_STEPS_PER_SEGMENT 6
@@ -888,7 +887,7 @@
  *
  * Override the default value based on the driver type set in Configuration.h.
  */
-#define MINIMUM_STEPPER_DIR_DELAY 20
+//#define MINIMUM_STEPPER_DIR_DELAY 650
 
 /**
  * Minimum stepper driver pulse width (in µs)
@@ -901,7 +900,7 @@
  *
  * Override the default value based on the driver type set in Configuration.h.
  */
-#define MINIMUM_STEPPER_PULSE 0
+//#define MINIMUM_STEPPER_PULSE 2
 
 /**
  * Maximum stepping rate (in Hz) the stepper driver allows
@@ -915,7 +914,7 @@
  *
  * Override the default value based on the driver type set in Configuration.h.
  */
-#define MAXIMUM_STEPPER_RATE 400000
+//#define MAXIMUM_STEPPER_RATE 250000
 
 // @section temperature
 
@@ -1006,18 +1005,18 @@
  *
  */
 //#define FWRETRACT  // ONLY PARTIALLY TESTED
-// #if ENABLED(FWRETRACT)
-//   #define MIN_AUTORETRACT 0.1             // When auto-retract is on, convert E moves of this length and over
-//   #define MAX_AUTORETRACT 10.0            // Upper limit for auto-retract conversion
-//   #define RETRACT_LENGTH 3                // Default retract length (positive mm)
-//   #define RETRACT_LENGTH_SWAP 13          // Default swap retract length (positive mm), for extruder change
-//   #define RETRACT_FEEDRATE 45             // Default feedrate for retracting (mm/s)
-//   #define RETRACT_ZLIFT 0                 // Default retract Z-lift
-//   #define RETRACT_RECOVER_LENGTH 0        // Default additional recover length (mm, added to retract length when recovering)
-//   #define RETRACT_RECOVER_LENGTH_SWAP 0   // Default additional swap recover length (mm, added to retract length when recovering from extruder change)
-//   #define RETRACT_RECOVER_FEEDRATE 8      // Default feedrate for recovering from retraction (mm/s)
-//   #define RETRACT_RECOVER_FEEDRATE_SWAP 8 // Default feedrate for recovering from swap retraction (mm/s)
-// #endif
+#if ENABLED(FWRETRACT)
+  #define MIN_AUTORETRACT 0.1             // When auto-retract is on, convert E moves of this length and over
+  #define MAX_AUTORETRACT 10.0            // Upper limit for auto-retract conversion
+  #define RETRACT_LENGTH 3                // Default retract length (positive mm)
+  #define RETRACT_LENGTH_SWAP 13          // Default swap retract length (positive mm), for extruder change
+  #define RETRACT_FEEDRATE 45             // Default feedrate for retracting (mm/s)
+  #define RETRACT_ZLIFT 0                 // Default retract Z-lift
+  #define RETRACT_RECOVER_LENGTH 0        // Default additional recover length (mm, added to retract length when recovering)
+  #define RETRACT_RECOVER_LENGTH_SWAP 0   // Default additional swap recover length (mm, added to retract length when recovering from extruder change)
+  #define RETRACT_RECOVER_FEEDRATE 8      // Default feedrate for recovering from retraction (mm/s)
+  #define RETRACT_RECOVER_FEEDRATE_SWAP 8 // Default feedrate for recovering from swap retraction (mm/s)
+#endif
 
 /**
  * Extra Fan Speed
@@ -1039,46 +1038,46 @@
  * This feature is required for the default FILAMENT_RUNOUT_SCRIPT.
  */
 //#define ADVANCED_PAUSE_FEATURE
-// #if ENABLED(ADVANCED_PAUSE_FEATURE)
-//   #define PAUSE_PARK_RETRACT_FEEDRATE         60  // (mm/s) Initial retract feedrate.
-//   #define PAUSE_PARK_RETRACT_LENGTH            2  // (mm) Initial retract.
-//                                                   // This short retract is done immediately, before parking the nozzle.
-//   #define FILAMENT_CHANGE_UNLOAD_FEEDRATE     10  // (mm/s) Unload filament feedrate. This can be pretty fast.
-//   #define FILAMENT_CHANGE_UNLOAD_ACCEL        25  // (mm/s^2) Lower acceleration may allow a faster feedrate.
-//   #define FILAMENT_CHANGE_UNLOAD_LENGTH      100  // (mm) The length of filament for a complete unload.
-//                                                   //   For Bowden, the full length of the tube and nozzle.
-//                                                   //   For direct drive, the full length of the nozzle.
-//                                                   //   Set to 0 for manual unloading.
-//   #define FILAMENT_CHANGE_SLOW_LOAD_FEEDRATE   6  // (mm/s) Slow move when starting load.
-//   #define FILAMENT_CHANGE_SLOW_LOAD_LENGTH     0  // (mm) Slow length, to allow time to insert material.
-//                                                   // 0 to disable start loading and skip to fast load only
-//   #define FILAMENT_CHANGE_FAST_LOAD_FEEDRATE   6  // (mm/s) Load filament feedrate. This can be pretty fast.
-//   #define FILAMENT_CHANGE_FAST_LOAD_ACCEL     25  // (mm/s^2) Lower acceleration may allow a faster feedrate.
-//   #define FILAMENT_CHANGE_FAST_LOAD_LENGTH     0  // (mm) Load length of filament, from extruder gear to nozzle.
-//                                                   //   For Bowden, the full length of the tube and nozzle.
-//                                                   //   For direct drive, the full length of the nozzle.
-//   //#define ADVANCED_PAUSE_CONTINUOUS_PURGE       // Purge continuously up to the purge length until interrupted.
-//   #define ADVANCED_PAUSE_PURGE_FEEDRATE        3  // (mm/s) Extrude feedrate (after loading). Should be slower than load feedrate.
-//   #define ADVANCED_PAUSE_PURGE_LENGTH         50  // (mm) Length to extrude after loading.
-//                                                   //   Set to 0 for manual extrusion.
-//                                                   //   Filament can be extruded repeatedly from the Filament Change menu
-//                                                   //   until extrusion is consistent, and to purge old filament.
-//
-//                                                   // Filament Unload does a Retract, Delay, and Purge first:
-//   #define FILAMENT_UNLOAD_RETRACT_LENGTH      13  // (mm) Unload initial retract length.
-//   #define FILAMENT_UNLOAD_DELAY             5000  // (ms) Delay for the filament to cool after retract.
-//   #define FILAMENT_UNLOAD_PURGE_LENGTH         8  // (mm) An unretract is done, then this length is purged.
-//
-//   #define PAUSE_PARK_NOZZLE_TIMEOUT           45  // (seconds) Time limit before the nozzle is turned off for safety.
-//   #define FILAMENT_CHANGE_ALERT_BEEPS         10  // Number of alert beeps to play when a response is needed.
-//   #define PAUSE_PARK_NO_STEPPER_TIMEOUT           // Enable for XYZ steppers to stay powered on during filament change.
+#if ENABLED(ADVANCED_PAUSE_FEATURE)
+  #define PAUSE_PARK_RETRACT_FEEDRATE         60  // (mm/s) Initial retract feedrate.
+  #define PAUSE_PARK_RETRACT_LENGTH            2  // (mm) Initial retract.
+                                                  // This short retract is done immediately, before parking the nozzle.
+  #define FILAMENT_CHANGE_UNLOAD_FEEDRATE     10  // (mm/s) Unload filament feedrate. This can be pretty fast.
+  #define FILAMENT_CHANGE_UNLOAD_ACCEL        25  // (mm/s^2) Lower acceleration may allow a faster feedrate.
+  #define FILAMENT_CHANGE_UNLOAD_LENGTH      100  // (mm) The length of filament for a complete unload.
+                                                  //   For Bowden, the full length of the tube and nozzle.
+                                                  //   For direct drive, the full length of the nozzle.
+                                                  //   Set to 0 for manual unloading.
+  #define FILAMENT_CHANGE_SLOW_LOAD_FEEDRATE   6  // (mm/s) Slow move when starting load.
+  #define FILAMENT_CHANGE_SLOW_LOAD_LENGTH     0  // (mm) Slow length, to allow time to insert material.
+                                                  // 0 to disable start loading and skip to fast load only
+  #define FILAMENT_CHANGE_FAST_LOAD_FEEDRATE   6  // (mm/s) Load filament feedrate. This can be pretty fast.
+  #define FILAMENT_CHANGE_FAST_LOAD_ACCEL     25  // (mm/s^2) Lower acceleration may allow a faster feedrate.
+  #define FILAMENT_CHANGE_FAST_LOAD_LENGTH     0  // (mm) Load length of filament, from extruder gear to nozzle.
+                                                  //   For Bowden, the full length of the tube and nozzle.
+                                                  //   For direct drive, the full length of the nozzle.
+  //#define ADVANCED_PAUSE_CONTINUOUS_PURGE       // Purge continuously up to the purge length until interrupted.
+  #define ADVANCED_PAUSE_PURGE_FEEDRATE        3  // (mm/s) Extrude feedrate (after loading). Should be slower than load feedrate.
+  #define ADVANCED_PAUSE_PURGE_LENGTH         50  // (mm) Length to extrude after loading.
+                                                  //   Set to 0 for manual extrusion.
+                                                  //   Filament can be extruded repeatedly from the Filament Change menu
+                                                  //   until extrusion is consistent, and to purge old filament.
+
+                                                  // Filament Unload does a Retract, Delay, and Purge first:
+  #define FILAMENT_UNLOAD_RETRACT_LENGTH      13  // (mm) Unload initial retract length.
+  #define FILAMENT_UNLOAD_DELAY             5000  // (ms) Delay for the filament to cool after retract.
+  #define FILAMENT_UNLOAD_PURGE_LENGTH         8  // (mm) An unretract is done, then this length is purged.
+
+  #define PAUSE_PARK_NOZZLE_TIMEOUT           45  // (seconds) Time limit before the nozzle is turned off for safety.
+  #define FILAMENT_CHANGE_ALERT_BEEPS         10  // Number of alert beeps to play when a response is needed.
+  #define PAUSE_PARK_NO_STEPPER_TIMEOUT           // Enable for XYZ steppers to stay powered on during filament change.
 
   //#define PARK_HEAD_ON_PAUSE                    // Park the nozzle during pause and filament change.
   //#define HOME_BEFORE_FILAMENT_CHANGE           // Ensure homing has been completed prior to parking for filament change
 
   //#define FILAMENT_LOAD_UNLOAD_GCODES           // Add M701/M702 Load/Unload G-codes, plus Load/Unload in the LCD Prepare menu.
   //#define FILAMENT_UNLOAD_ALL_EXTRUDERS         // Allow M702 to unload all extruders above a minimum target temp (as set by M302)
-// #endif
+#endif
 
 // @section tmc
 
@@ -1134,7 +1133,7 @@
   #define E4_SENSE_RESISTOR   91
   #define E4_MICROSTEPS       16
 
-#endif
+#endif // TMC26X
 
 // @section tmc_smart
 
@@ -1224,11 +1223,11 @@
    */
   //#define MONITOR_DRIVER_STATUS
 
-  // #if ENABLED(MONITOR_DRIVER_STATUS)
-  //   #define CURRENT_STEP_DOWN     50  // [mA]
-  //   #define REPORT_CURRENT_CHANGE
-  //   #define STOP_ON_ERROR
-  // #endif
+  #if ENABLED(MONITOR_DRIVER_STATUS)
+    #define CURRENT_STEP_DOWN     50  // [mA]
+    #define REPORT_CURRENT_CHANGE
+    #define STOP_ON_ERROR
+  #endif
 
   /**
    * The driver will switch to spreadCycle when stepper speed is over HYBRID_THRESHOLD.
@@ -1236,19 +1235,19 @@
    * STEALTHCHOP needs to be enabled.
    * M913 X/Y/Z/E to live tune the setting
    */
-  #define HYBRID_THRESHOLD
+  //#define HYBRID_THRESHOLD
 
   #define X_HYBRID_THRESHOLD     100  // [mm/s]
-  // #define X2_HYBRID_THRESHOLD    100
+  #define X2_HYBRID_THRESHOLD    100
   #define Y_HYBRID_THRESHOLD     100
-  // #define Y2_HYBRID_THRESHOLD    100
+  #define Y2_HYBRID_THRESHOLD    100
   #define Z_HYBRID_THRESHOLD       3
-  // #define Z2_HYBRID_THRESHOLD      3
+  #define Z2_HYBRID_THRESHOLD      3
   #define E0_HYBRID_THRESHOLD     30
-  // #define E1_HYBRID_THRESHOLD     30
-  // #define E2_HYBRID_THRESHOLD     30
-  // #define E3_HYBRID_THRESHOLD     30
-  // #define E4_HYBRID_THRESHOLD     30
+  #define E1_HYBRID_THRESHOLD     30
+  #define E2_HYBRID_THRESHOLD     30
+  #define E3_HYBRID_THRESHOLD     30
+  #define E4_HYBRID_THRESHOLD     30
 
   /**
    * Use stallGuard2 to sense an obstacle and trigger an endstop.
@@ -1264,11 +1263,11 @@
    */
   //#define SENSORLESS_HOMING // TMC2130 only
 
-  // #if ENABLED(SENSORLESS_HOMING)
-  //   #define X_HOMING_SENSITIVITY  8
-  //   #define Y_HOMING_SENSITIVITY  8
-  //   #define Z_HOMING_SENSITIVITY  8
-  // #endif
+  #if ENABLED(SENSORLESS_HOMING)
+    #define X_HOMING_SENSITIVITY  8
+    #define Y_HOMING_SENSITIVITY  8
+    #define Z_HOMING_SENSITIVITY  8
+  #endif
 
   /**
    * Enable M122 debugging command for TMC stepper drivers.
@@ -1287,10 +1286,10 @@
    * Use M925 Znn to add extra Z height to Z_MAX_POS.
    */
   //#define TMC_Z_CALIBRATION
-  // #if ENABLED(TMC_Z_CALIBRATION)
-  //   #define CALIBRATION_CURRENT 250
-  //   #define CALIBRATION_EXTRA_HEIGHT 10
-  // #endif
+  #if ENABLED(TMC_Z_CALIBRATION)
+    #define CALIBRATION_CURRENT 250
+    #define CALIBRATION_EXTRA_HEIGHT 10
+  #endif
 
   /**
    * You can set your own advanced settings by filling in predefined functions.
@@ -1316,53 +1315,53 @@
  * The Arduino-L6470 library is required for this stepper driver.
  * https://github.com/ameyer/Arduino-L6470
  */
-// #if HAS_DRIVER(L6470)
-//
-//   #define X_MICROSTEPS      16 // number of microsteps
-//   #define X_OVERCURRENT   2000 // maxc current in mA. If the current goes over this value, the driver will switch off
-//   #define X_STALLCURRENT  1500 // current in mA where the driver will detect a stall
-//
-//   #define X2_MICROSTEPS     16
-//   #define X2_OVERCURRENT  2000
-//   #define X2_STALLCURRENT 1500
-//
-//   #define Y_MICROSTEPS      16
-//   #define Y_OVERCURRENT   2000
-//   #define Y_STALLCURRENT  1500
-//
-//   #define Y2_MICROSTEPS     16
-//   #define Y2_OVERCURRENT  2000
-//   #define Y2_STALLCURRENT 1500
-//
-//   #define Z_MICROSTEPS      16
-//   #define Z_OVERCURRENT   2000
-//   #define Z_STALLCURRENT  1500
-//
-//   #define Z2_MICROSTEPS     16
-//   #define Z2_OVERCURRENT  2000
-//   #define Z2_STALLCURRENT 1500
-//
-//   #define E0_MICROSTEPS     16
-//   #define E0_OVERCURRENT  2000
-//   #define E0_STALLCURRENT 1500
-//
-//   #define E1_MICROSTEPS     16
-//   #define E1_OVERCURRENT  2000
-//   #define E1_STALLCURRENT 1500
-//
-//   #define E2_MICROSTEPS     16
-//   #define E2_OVERCURRENT  2000
-//   #define E2_STALLCURRENT 1500
-//
-//   #define E3_MICROSTEPS     16
-//   #define E3_OVERCURRENT  2000
-//   #define E3_STALLCURRENT 1500
-//
-//   #define E4_MICROSTEPS     16
-//   #define E4_OVERCURRENT  2000
-//   #define E4_STALLCURRENT 1500
-//
-// #endif
+#if HAS_DRIVER(L6470)
+
+  #define X_MICROSTEPS      16 // number of microsteps
+  #define X_OVERCURRENT   2000 // maxc current in mA. If the current goes over this value, the driver will switch off
+  #define X_STALLCURRENT  1500 // current in mA where the driver will detect a stall
+
+  #define X2_MICROSTEPS     16
+  #define X2_OVERCURRENT  2000
+  #define X2_STALLCURRENT 1500
+
+  #define Y_MICROSTEPS      16
+  #define Y_OVERCURRENT   2000
+  #define Y_STALLCURRENT  1500
+
+  #define Y2_MICROSTEPS     16
+  #define Y2_OVERCURRENT  2000
+  #define Y2_STALLCURRENT 1500
+
+  #define Z_MICROSTEPS      16
+  #define Z_OVERCURRENT   2000
+  #define Z_STALLCURRENT  1500
+
+  #define Z2_MICROSTEPS     16
+  #define Z2_OVERCURRENT  2000
+  #define Z2_STALLCURRENT 1500
+
+  #define E0_MICROSTEPS     16
+  #define E0_OVERCURRENT  2000
+  #define E0_STALLCURRENT 1500
+
+  #define E1_MICROSTEPS     16
+  #define E1_OVERCURRENT  2000
+  #define E1_STALLCURRENT 1500
+
+  #define E2_MICROSTEPS     16
+  #define E2_OVERCURRENT  2000
+  #define E2_STALLCURRENT 1500
+
+  #define E3_MICROSTEPS     16
+  #define E3_OVERCURRENT  2000
+  #define E3_STALLCURRENT 1500
+
+  #define E4_MICROSTEPS     16
+  #define E4_OVERCURRENT  2000
+  #define E4_STALLCURRENT 1500
+
+#endif // L6470
 
 /**
  * TWI/I2C BUS
@@ -1415,36 +1414,36 @@
  * See http://marlinfw.org/docs/configuration/laser_spindle.html for more config details.
  */
 //#define SPINDLE_LASER_ENABLE
-// #if ENABLED(SPINDLE_LASER_ENABLE)
-//
-//   #define SPINDLE_LASER_ENABLE_INVERT   false  // set to "true" if the on/off function is reversed
-//   #define SPINDLE_LASER_PWM             true   // set to true if your controller supports setting the speed/power
-//   #define SPINDLE_LASER_PWM_INVERT      true   // set to "true" if the speed/power goes up when you want it to go slower
-//   #define SPINDLE_LASER_POWERUP_DELAY   5000   // delay in milliseconds to allow the spindle/laser to come up to speed/power
-//   #define SPINDLE_LASER_POWERDOWN_DELAY 5000   // delay in milliseconds to allow the spindle to stop
-//   #define SPINDLE_DIR_CHANGE            true   // set to true if your spindle controller supports changing spindle direction
-//   #define SPINDLE_INVERT_DIR            false
-//   #define SPINDLE_STOP_ON_DIR_CHANGE    true   // set to true if Marlin should stop the spindle before changing rotation direction
-//
-//   /**
-//    *  The M3 & M4 commands use the following equation to convert PWM duty cycle to speed/power
-//    *
-//    *  SPEED/POWER = PWM duty cycle * SPEED_POWER_SLOPE + SPEED_POWER_INTERCEPT
-//    *    where PWM duty cycle varies from 0 to 255
-//    *
-//    *  set the following for your controller (ALL MUST BE SET)
-//    */
-//
-//   #define SPEED_POWER_SLOPE    118.4
-//   #define SPEED_POWER_INTERCEPT  0
-//   #define SPEED_POWER_MIN     5000
-//   #define SPEED_POWER_MAX    30000    // SuperPID router controller 0 - 30,000 RPM
-//
-//   //#define SPEED_POWER_SLOPE      0.3922
-//   //#define SPEED_POWER_INTERCEPT  0
-//   //#define SPEED_POWER_MIN       10
-//   //#define SPEED_POWER_MAX      100      // 0-100%
-// #endif
+#if ENABLED(SPINDLE_LASER_ENABLE)
+
+  #define SPINDLE_LASER_ENABLE_INVERT   false  // set to "true" if the on/off function is reversed
+  #define SPINDLE_LASER_PWM             true   // set to true if your controller supports setting the speed/power
+  #define SPINDLE_LASER_PWM_INVERT      true   // set to "true" if the speed/power goes up when you want it to go slower
+  #define SPINDLE_LASER_POWERUP_DELAY   5000   // delay in milliseconds to allow the spindle/laser to come up to speed/power
+  #define SPINDLE_LASER_POWERDOWN_DELAY 5000   // delay in milliseconds to allow the spindle to stop
+  #define SPINDLE_DIR_CHANGE            true   // set to true if your spindle controller supports changing spindle direction
+  #define SPINDLE_INVERT_DIR            false
+  #define SPINDLE_STOP_ON_DIR_CHANGE    true   // set to true if Marlin should stop the spindle before changing rotation direction
+
+  /**
+   *  The M3 & M4 commands use the following equation to convert PWM duty cycle to speed/power
+   *
+   *  SPEED/POWER = PWM duty cycle * SPEED_POWER_SLOPE + SPEED_POWER_INTERCEPT
+   *    where PWM duty cycle varies from 0 to 255
+   *
+   *  set the following for your controller (ALL MUST BE SET)
+   */
+
+  #define SPEED_POWER_SLOPE    118.4
+  #define SPEED_POWER_INTERCEPT  0
+  #define SPEED_POWER_MIN     5000
+  #define SPEED_POWER_MAX    30000    // SuperPID router controller 0 - 30,000 RPM
+
+  //#define SPEED_POWER_SLOPE      0.3922
+  //#define SPEED_POWER_INTERCEPT  0
+  //#define SPEED_POWER_MIN       10
+  //#define SPEED_POWER_MAX      100      // 0-100%
+#endif
 
 /**
  * Filament Width Sensor
@@ -1466,18 +1465,18 @@
  */
 //#define FILAMENT_WIDTH_SENSOR
 
-// #if ENABLED(FILAMENT_WIDTH_SENSOR)
-//   #define FILAMENT_SENSOR_EXTRUDER_NUM 0    // Index of the extruder that has the filament sensor. :[0,1,2,3,4]
-//   #define MEASUREMENT_DELAY_CM        14    // (cm) The distance from the filament sensor to the melting chamber
-//
-//   #define FILWIDTH_ERROR_MARGIN        1.0  // (mm) If a measurement differs too much from nominal width ignore it
-//   #define MAX_MEASUREMENT_DELAY       20    // (bytes) Buffer size for stored measurements (1 byte per cm). Must be larger than MEASUREMENT_DELAY_CM.
-//
-//   #define DEFAULT_MEASURED_FILAMENT_DIA DEFAULT_NOMINAL_FILAMENT_DIA // Set measured to nominal initially
-//
-//   // Display filament width on the LCD status line. Status messages will expire after 5 seconds.
-//   //#define FILAMENT_LCD_DISPLAY
-// #endif
+#if ENABLED(FILAMENT_WIDTH_SENSOR)
+  #define FILAMENT_SENSOR_EXTRUDER_NUM 0    // Index of the extruder that has the filament sensor. :[0,1,2,3,4]
+  #define MEASUREMENT_DELAY_CM        14    // (cm) The distance from the filament sensor to the melting chamber
+
+  #define FILWIDTH_ERROR_MARGIN        1.0  // (mm) If a measurement differs too much from nominal width ignore it
+  #define MAX_MEASUREMENT_DELAY       20    // (bytes) Buffer size for stored measurements (1 byte per cm). Must be larger than MEASUREMENT_DELAY_CM.
+
+  #define DEFAULT_MEASURED_FILAMENT_DIA DEFAULT_NOMINAL_FILAMENT_DIA // Set measured to nominal initially
+
+  // Display filament width on the LCD status line. Status messages will expire after 5 seconds.
+  //#define FILAMENT_LCD_DISPLAY
+#endif
 
 /**
  * CNC Coordinate Systems
@@ -1525,7 +1524,7 @@
  *  - M206 and M428 are disabled.
  *  - G92 will revert to its behavior from Marlin 1.0.
  */
-#define NO_WORKSPACE_OFFSETS
+//#define NO_WORKSPACE_OFFSETS
 
 /**
  * Set the number of proportional font spaces required to fill up a typical character space.
@@ -1658,7 +1657,7 @@
    * this setting determines the minimum update time between checks. A value of 100 works well with
    * error rolling average when attempting to correct only for skips and not for vibration.
    */
-  #define I2CPE_MIN_UPD_TIME_MS     100                      // (ms) Minimum time between encoder checks.
+  #define I2CPE_MIN_UPD_TIME_MS     4                       // (ms) Minimum time between encoder checks.
 
   // Use a rolling average to identify persistant errors that indicate skips, as opposed to vibration and noise.
   #define I2CPE_ERR_ROLLING_AVERAGE
