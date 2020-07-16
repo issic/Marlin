@@ -104,7 +104,7 @@
   /**
    * As described above, except for the bed (M140/M190/M303).
    */
-  #define WATCH_BED_TEMP_PERIOD 60                // Seconds
+  #define WATCH_BED_TEMP_PERIOD 120               // Seconds
   #define WATCH_BED_TEMP_INCREASE 2               // Degrees Celsius
 #endif
 
@@ -834,11 +834,11 @@
  * See http://marlinfw.org/docs/features/lin_advance.html for full instructions.
  * Mention @Sebastianv650 on GitHub to alert the author of any issues.
  */
-//#define LIN_ADVANCE
-// #if ENABLED(LIN_ADVANCE)
-//   #define LIN_ADVANCE_K 0.22  // Unit: mm compression per 1mm/s extruder speed
-//   //#define LA_DEBUG          // If enabled, this will generate debug information output over USB.
-// #endif
+#define LIN_ADVANCE
+ #if ENABLED(LIN_ADVANCE)
+   #define LIN_ADVANCE_K 0.15  // Unit: mm compression per 1mm/s extruder speed
+   //#define LA_DEBUG          // If enabled, this will generate debug information output over USB.
+ #endif
 
 // @section leveling
 
@@ -1304,7 +1304,7 @@
    *   stepperY.interpolate(0); \
    * }
    */
-  #define TMC_ADV() {  }
+  #define TMC_ADV() { stepperE0.en_spreadCycle(true);  }
 
 #endif // TMC2130 || TMC2208
 
