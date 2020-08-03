@@ -342,3 +342,18 @@
     #define SPINDLE_DIR_PIN                   -1  // No pin available on the socket for the direction pin
   #endif
 #endif
+#if HAS_TMC_UART
+
+#define X_SERIAL_TX_PIN 5 //PB5
+#define X_SERIAL_RX_PIN 5 //PB5
+
+#define Z_SERIAL_TX_PIN 31 //PA0
+#define Z_SERIAL_RX_PIN 31 //PA0
+
+#define E0_SERIAL_TX_PIN 6 //PB6
+#define E0_SERIAL_RX_PIN 6 //PB6
+
+#define Y_SERIAL_TX_PIN 7 //PB7
+#define Y_SERIAL_RX_PIN 7 //PB7
+
+#endif
